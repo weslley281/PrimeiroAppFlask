@@ -1,0 +1,30 @@
+# Ambiente virtual
+venv/
+.env
+
+# Arquivos Python compilados
+*.pyc
+*.pyo
+__pycache__/
+
+# Configurações de IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Arquivos de banco de dados SQLite (caso você use no futuro)
+*.sqlite3
+
+# Arquivos de configuração específicos do sistema
+*.env
+
+# Arquivos de cache do Flask
+instance/
+*.pyc
+*.pyo
+
+# Exclui dist/ e build/ (caso use pacotes)
+dist/
+build/
