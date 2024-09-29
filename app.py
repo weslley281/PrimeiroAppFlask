@@ -1,13 +1,14 @@
 from flask import Flask
+from controllers.user_controller import index, create, update, list, delete
 
-# Cria a aplicação Flask
 app = Flask(__name__)
 
-# Rota principal
-@app.route('/')
-def hello_world():
-    return 'Olá, Mundo!'
+# Rotas
+app.add_url_rule('/', 'index', index)
+app.add_url_rule('/create', 'create', create, methods=['GET', 'POST'])
+app.add_url_rule('/update/<int:user_id>', 'update', update, methods=['GET', 'POST'])
+app.add_url_rule('/list', 'list', list)
+app.add_url_rule('/delete/<int:user_id>', 'delete', delete)
 
-# Executa a aplicação
 if __name__ == '__main__':
     app.run(debug=True)

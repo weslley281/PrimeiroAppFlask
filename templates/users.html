@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+</head>
+
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <!-- Link para criar novo usuário -->
+    <a href="{{ url_for('create') }}">Criar Novo Usuário</a>
+
+    <!-- Tabela de usuários -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop sobre a lista de usuários -->
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td> <!-- ID do usuário -->
+                <td>{{ user[1] }}</td> <!-- Nome do usuário -->
+                <td>{{ user[2] }}</td> <!-- Email do usuário -->
+                <td>
+                    <!-- Link para editar o usuário -->
+                    <a href="{{ url_for('update', user_id=user[0]) }}">Editar</a> |
+                    <!-- Link para deletar o usuário -->
+                    <a href="{{ url_for('delete', user_id=user[0]) }}"
+                        onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
